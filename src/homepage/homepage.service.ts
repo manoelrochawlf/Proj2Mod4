@@ -30,7 +30,7 @@ export class HomepageService {
       },
     });
 
-const allGames = await this.prisma.jogos.findMany({
+const jogos = await this.prisma.jogos.findMany({
   select: {
     id: true,
     Title: true,
@@ -47,7 +47,7 @@ if (!record) {
   throw new NotFoundException(`Registro com o ID '${id}' não encontrado.`);
 }
 
-return [record, allGames];
+return [record, jogos];
 }
 }
 

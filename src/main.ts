@@ -18,16 +18,18 @@ async function bootstrap() {
     .addTag('status')
     .addTag('auth')
     .addTag('jogos')
+    .addTag('generos')
     .addTag('profiles')
     .addTag('user')
     .addTag('jogos-generos')
     .addTag('profiles-jogos')
+    .addTag('homepage')
     .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3333);
+  await app.listen(process.env.PORT ||3333);
 }
 bootstrap();
