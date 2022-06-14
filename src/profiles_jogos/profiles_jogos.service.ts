@@ -53,7 +53,7 @@ export class ProfilesJogosService {
     }
 
     return record;
-    
+
   }
 
   async update(id: string, dto: UpdateProfilesJogoDto) {

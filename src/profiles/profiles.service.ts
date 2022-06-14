@@ -4,6 +4,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateProfilesDto } from './dto/create-profiles.dto';
 import { UpdateProfilesDto } from './dto/update-profiles.dto';
 
+
 @Injectable()
 export class ProfilesService {
   constructor(private readonly prisma: PrismaService) {}

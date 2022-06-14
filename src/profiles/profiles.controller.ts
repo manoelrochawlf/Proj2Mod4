@@ -1,10 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus, UseGuards } from '@nestjs/common';
 import { ProfilesService } from './profiles.service';
 import { CreateProfilesDto } from './dto/create-profiles.dto';
 import { UpdateProfilesDto } from './dto/update-profiles.dto';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('profiles')
+@UseGuards(AuthGuard())
+@ApiBearerAuth()
 @Controller('profiles')
 export class ProfilesController {
   constructor(private readonly profilesService: ProfilesService) {}
